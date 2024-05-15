@@ -1,5 +1,5 @@
 import { Composer } from 'telegraf';
-import { prisma } from '../lib/prisma';
+import { prisma } from '../lib/prisma.js';
 
 export const chatMemberLeft = Composer.on(
   'my_chat_member',

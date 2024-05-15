@@ -1,5 +1,5 @@
-import { fetchExpiration } from './lib/api';
-import { prisma } from './lib/prisma';
+import { fetchExpiration } from './lib/api.js';
+import { prisma } from './lib/prisma.js';
 
 async function sync() {
   const target = await prisma.subscription.findFirst({

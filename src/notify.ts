@@ -1,6 +1,6 @@
-import { fetchExpiration } from './lib/api';
-import { bot } from './lib/bot';
-import { prisma } from './lib/prisma';
+import { fetchExpiration } from './lib/api.js';
+import { bot } from './lib/bot.js';
+import { prisma } from './lib/prisma.js';
 
 async function notify() {
   const target = await prisma.subscription.findFirst({

@@ -1,6 +1,6 @@
 import { Composer } from 'telegraf';
-import { fetchExpiration } from '../lib/api';
-import { prisma } from '../lib/prisma';
+import { fetchExpiration } from '../lib/api.js';
+import { prisma } from '../lib/prisma.js';
 
 export const add = Composer.command('add', async (ctx) => {
   const telegramChatId = ctx.message.chat.id;

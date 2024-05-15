@@ -1,5 +1,5 @@
 import { Composer } from 'telegraf';
-import { prisma } from '../lib/prisma';
+import { prisma } from '../lib/prisma.js';
 
 export const remove = Composer.command('remove', async (ctx) => {
   const telegramChatId = ctx.message.chat.id;

@@ -1,8 +1,8 @@
-import { bot } from './lib/bot';
-import { prisma } from './lib/prisma';
-import { chatMemberLeft } from './middleware/chatMemberLeft';
-import { add } from './middleware/add';
-import { remove } from './middleware/remove';
+import { bot } from './lib/bot.js';
+import { prisma } from './lib/prisma.js';
+import { chatMemberLeft } from './middleware/chatMemberLeft.js';
+import { add } from './middleware/add.js';
+import { remove } from './middleware/remove.js';
 
 bot.on('message', (ctx, next) => {
   console.log(ctx.message);
