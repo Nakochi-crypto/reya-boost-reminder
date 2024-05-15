@@ -23,12 +23,17 @@ async function sync() {
 
   const response = await fetchExpiration(address);
 
+  const expiresAt =
+    response.status === 'lockedIn'
+      ? new Date(response.nextBoostStartTimestampMilliseconds)
+      : target.expiresAt;
+
   await prisma.subscription.update({
     where: {
       telegramChatId_address: { telegramChatId, address },
     },
     data: {
-      expiresAt: new Date(response.nextBoostStartTimestampMilliseconds),
+      expiresAt,
     },
   });
   console.log('subscription updated');
