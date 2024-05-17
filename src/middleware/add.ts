@@ -7,7 +7,7 @@ export const add = Composer.command('add', async (ctx) => {
   const [address] = ctx.text.match(/0x[a-f0-9]{40}/i) ?? [];
 
   if (!address) {
-    await ctx.reply('Usage: /add <address>');
+    await ctx.reply('Usage: /add 0x...');
     return;
   }
 

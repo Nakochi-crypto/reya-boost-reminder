@@ -17,8 +17,8 @@ bot.on('message', async (ctx) => {
   await ctx.reply(`
 Usage:
 
-/add <address>
-/remove <address>
+/add 0x...
+/remove 0x...
 `);
 });
 
