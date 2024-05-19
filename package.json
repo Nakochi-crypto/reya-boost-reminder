@@ -4,8 +4,12 @@
   "type": "module",
   "license": "MIT",
   "private": true,
+  "engines": {
+    "node": "18.x"
+  },
   "dependencies": {
     "@prisma/client": "^5.14.0",
+    "dotenv": "^16.4.5",
     "telegraf": "^4.16.3",
     "zod": "^3.23.8"
   },
