@@ -24,6 +24,8 @@ export const add = Composer.command('add', async (ctx) => {
 
   const response = await fetchExpiration(address);
 
+  console.log(response);
+
   if (response.status === 'notStarted') {
     await ctx.reply('Not started');
     return;

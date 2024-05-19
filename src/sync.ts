@@ -23,6 +23,8 @@ async function sync() {
 
   const response = await fetchExpiration(address);
 
+  console.log(response);
+
   const expiresAt =
     response.status === 'lockedIn'
       ? new Date(response.nextBoostStartTimestampMilliseconds)

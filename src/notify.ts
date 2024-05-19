@@ -25,6 +25,8 @@ async function notify() {
 
   const response = await fetchExpiration(address);
 
+  console.log(response);
+
   if (response.status === 'expired') {
     await bot.telegram.sendMessage(
       Number(telegramChatId),
