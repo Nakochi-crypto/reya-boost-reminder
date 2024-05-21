@@ -2,7 +2,7 @@ import { z } from 'zod';
 
 const RenaApiResponseSchema = z.object({
   bodyId: z.string(),
-  status: z.enum(['lockedIn', 'expired', 'notStarted']),
+  status: z.enum(['lockedIn', 'expired', 'notStarted', 'notLockedIn']),
   boostRate: z.number(),
   nextBoostStartTimestampMilliseconds: z.number(),
 });

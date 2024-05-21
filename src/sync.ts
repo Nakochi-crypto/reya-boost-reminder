@@ -26,9 +26,9 @@ async function sync() {
   console.log(response);
 
   const expiresAt =
-    response.status === 'lockedIn'
-      ? new Date(response.nextBoostStartTimestampMilliseconds)
-      : target.expiresAt;
+    response.status === 'expired'
+      ? target.expiresAt
+      : new Date(response.nextBoostStartTimestampMilliseconds);
 
   await prisma.subscription.update({
     where: {
