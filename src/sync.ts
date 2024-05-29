@@ -1,11 +1,12 @@
 import { fetchExpiration } from './lib/api.js';
+import { now } from './lib/date.js';
 import { prisma } from './lib/prisma.js';
 
 async function sync() {
   const target = await prisma.subscription.findFirst({
     where: {
       expiresAt: {
-        lt: new Date(),
+        lt: now,
       },
     },
     orderBy: {

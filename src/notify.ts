@@ -1,13 +1,27 @@
 import { fetchExpiration } from './lib/api.js';
 import { bot } from './lib/bot.js';
+import { now, yesterday } from './lib/date.js';
 import { prisma } from './lib/prisma.js';
 
 async function notify() {
   const target = await prisma.subscription.findFirst({
     where: {
-      expiresAt: {
-        lt: new Date(),
-        gt: prisma.subscription.fields.notifiedAt,
+      OR: [
+        {
+          expiresAt: {
+            gt: prisma.subscription.fields.notifiedAt,
+          },
+        },
+        {
+          notifiedAt: {
+            lt: yesterday,
+          },
+        },
+      ],
+      NOT: {
+        expiresAt: {
+          gt: now,
+        },
       },
     },
     orderBy: {
@@ -44,7 +58,7 @@ https://reya.network/lge
       telegramChatId_address: { telegramChatId, address },
     },
     data: {
-      notifiedAt: new Date(),
+      notifiedAt: now,
     },
   });
   console.log('Subscription updated');
